@@ -7,6 +7,8 @@ var SPEED = 5.0
 var sprintSpeed = 9.0
 var JUMP_VELOCITY = 6 # Jump height y-axis
 
+
+
 @export var mouseSensitivity = 0.3
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -52,11 +54,12 @@ func _animation_finished(anim_name):
 		print("Animation finished:", anim_name)
 
 
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
+		
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -92,3 +95,5 @@ func _physics_process(delta):
 
 	move_and_slide()
 	_snap_down_stairs_check()
+	
+
